@@ -1,7 +1,9 @@
-import 'package:app1/app_localization.dart';
-import 'package:app1/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:app1/l10n/app_localization.dart';
+
+import '../business_logic/bloc/counter_bloc/counter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +13,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: Text("Home Page".tr(context)),
+          actions: [
+            IconButton(
+              onPressed: () {
+                context.go('/settings');
+              },
+              icon: const Icon(Icons.settings),
+            )
+          ],
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -54,6 +64,7 @@ class FabWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         FloatingActionButton.extended(
+          heroTag: "btn1",
           onPressed: () {
             BlocProvider.of<CounterBloc>(context).add(DecrementEvent());
           },
@@ -61,6 +72,7 @@ class FabWidget extends StatelessWidget {
         ),
         const SizedBox(width: 4),
         FloatingActionButton.extended(
+          heroTag: "btn2",
           onPressed: () {
             BlocProvider.of<CounterBloc>(context).add(ResetEvent());
           },
@@ -68,6 +80,7 @@ class FabWidget extends StatelessWidget {
         ),
         const SizedBox(width: 4),
         FloatingActionButton.extended(
+          heroTag: "btn3",
           onPressed: () {
             BlocProvider.of<CounterBloc>(context).add(IncrementEvent());
           },

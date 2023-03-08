@@ -1,5 +1,7 @@
 {
     "counter_msg": "Counter Value is",
     "reset": "Reset",
-    "Home Page":"Home Page"
+    "Home Page":"Home Page",
+    "Settings":"Settings"
+    
 }
