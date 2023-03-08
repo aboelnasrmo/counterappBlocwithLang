@@ -1,3 +1,4 @@
+import 'package:app1/app_localization.dart';
 import 'package:app1/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Counter Value is'),
+            Text("counter_msg".tr(context)),
             const SizedBox(height: 20),
             BlocBuilder<CounterBloc, CounterState>(
               builder: (context, state) {
@@ -63,7 +64,7 @@ class FabWidget extends StatelessWidget {
           onPressed: () {
             BlocProvider.of<CounterBloc>(context).add(ResetEvent());
           },
-          label: const Text('reset'),
+          label: Text("reset".tr(context)),
         ),
         const SizedBox(width: 4),
         FloatingActionButton.extended(

@@ -1,1 +1,4 @@
-{}
+{
+    "counter_msg": "Counter Value is",
+    "reset": "Reset"
+}

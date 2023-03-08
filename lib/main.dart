@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'app_localization.dart';
 import 'home_page.dart';
 
 void main() {
@@ -22,14 +23,19 @@ class MyApp extends StatelessWidget {
           Locale('ar'),
         ],
         localizationsDelegates: const [
+          AppLocalizations.delegte,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate
         ],
         localeResolutionCallback: (deviceLocale, supportedLocales) {
-          if (deviceLocale != null) {
-            return deviceLocale;
+          for (var locale in supportedLocales) {
+            if (deviceLocale != null &&
+                deviceLocale.languageCode == locale.languageCode) {
+              return deviceLocale;
+            }
           }
+          return supportedLocales.first;
         },
         debugShowCheckedModeBanner: false,
         title: 'Hello World',
