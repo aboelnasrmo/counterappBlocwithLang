@@ -51,7 +51,15 @@ class HomePage extends StatelessWidget {
                 if (state is ConnectedState) {
                   return Text(state.msg);
                 } else if (state is NotConnectedState) {
-                  return Text(state.msg);
+                  return Column(
+                    children: [
+                      Text(state.msg),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const CircularProgressIndicator(),
+                    ],
+                  );
                 }
                 return const SizedBox();
               },
