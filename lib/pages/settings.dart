@@ -19,35 +19,52 @@ class Settings extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
         ),
       ),
-      body: Center(
-        child: BlocConsumer<LocalCubit, LocalState>(
-          builder: (context, state) {
-            if (state is ChangeLocalState) {
-              return DropdownButton<String>(
-                value: state.locale.languageCode,
-                icon: const Icon(Icons.arrow_downward_rounded),
-                items: ['ar', 'en'].map((String items) {
-                  return DropdownMenuItem<String>(
-                    value: items,
-                    child: Text(items),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  if (value != null) {
-                    BlocProvider.of<LocalCubit>(context).changeLanguage(value);
-                  }
-                },
-              );
-            } else {
-              return const SizedBox();
-            }
-          },
-          listener: (context, state) {
-            if (state is ChangeLocalState) {
-              context.go('/');
-            }
-          },
-        ),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text("Language".tr(context)),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: BlocConsumer<LocalCubit, LocalState>(
+                  builder: (context, state) {
+                    if (state is ChangeLocalState) {
+                      return DropdownButton<String>(
+                        value: state.locale.languageCode,
+                        icon: const Icon(Icons.arrow_downward_rounded),
+                        items: ['ar', 'en'].map((String items) {
+                          return DropdownMenuItem<String>(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          if (value != null) {
+                            BlocProvider.of<LocalCubit>(context)
+                                .changeLanguage(value);
+                          }
+                        },
+                      );
+                    } else {
+                      return const SizedBox();
+                    }
+                  },
+                  listener: (context, state) {
+                    if (state is ChangeLocalState) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text("Language Changed".tr(context))));
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

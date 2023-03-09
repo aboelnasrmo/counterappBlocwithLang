@@ -2,5 +2,7 @@
     "counter_msg":"قيمة الكاونتر",
     "reset":"إعادة تعيين",
     "Home Page":"الصفحة الرئيسية",
-    "Settings":"الإعدادات"
+    "Settings":"الإعدادات",
+    "Language":"اللغة",
+    "Language Changed":"Language Changed"
 }

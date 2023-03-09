@@ -2,6 +2,8 @@
     "counter_msg": "Counter Value is",
     "reset": "Reset",
     "Home Page":"Home Page",
-    "Settings":"Settings"
+    "Language":"Language",
+    "Settings":"Settings",
+    "Language Changed":"تم تغيير اللغة"
     
 }
