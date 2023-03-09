@@ -46,7 +46,17 @@ class HomePage extends StatelessWidget {
               },
             ),
             const SizedBox(height: 20),
-            BlocBuilder<InternetBloc, InternetState>(
+            BlocConsumer<InternetBloc, InternetState>(
+              listener: (context, state) {
+                if (state is NotConnectedState) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.msg),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              },
               builder: (context, state) {
                 if (state is ConnectedState) {
                   return Text(state.msg);
