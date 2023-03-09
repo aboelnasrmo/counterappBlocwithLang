@@ -1,3 +1,4 @@
+import 'package:app1/business_logic/bloc/internet_bloc/internet_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -42,6 +43,17 @@ class HomePage extends StatelessWidget {
                 } else {
                   return const SizedBox();
                 }
+              },
+            ),
+            const SizedBox(height: 20),
+            BlocBuilder<InternetBloc, InternetState>(
+              builder: (context, state) {
+                if (state is ConnectedState) {
+                  return Text(state.msg);
+                } else if (state is NotConnectedState) {
+                  return Text(state.msg);
+                }
+                return const SizedBox();
               },
             ),
             const SizedBox(height: 20),

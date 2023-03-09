@@ -1,3 +1,4 @@
+import 'package:app1/business_logic/bloc/internet_bloc/internet_bloc.dart';
 import 'package:app1/business_logic/cubit/local_cubit/local_cubit.dart';
 import 'package:app1/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LocalCubit()..getSavedLanguage(),
+        ),
+        BlocProvider(
+          create: (context) => InternetBloc(),
         ),
       ],
       child: BlocBuilder<LocalCubit, LocalState>(
