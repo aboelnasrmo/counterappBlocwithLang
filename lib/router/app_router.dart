@@ -8,7 +8,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const HomePage(),
+        builder: (context, state) => HomePage(),
       ),
       GoRoute(
         path: '/settings',

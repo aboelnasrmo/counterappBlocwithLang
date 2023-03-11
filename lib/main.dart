@@ -1,4 +1,5 @@
 import 'package:app1/business_logic/bloc/internet_bloc/internet_bloc.dart';
+import 'package:app1/business_logic/bloc/tasks_bloc/tasks_bloc.dart';
 import 'package:app1/business_logic/cubit/local_cubit/local_cubit.dart';
 import 'package:app1/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'business_logic/bloc/counter_bloc/counter_bloc.dart';
 import 'l10n/app_localization.dart';
+import 'model/task.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +29,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => InternetBloc(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              TasksBloc()..add(AddTask(task: Task(title: 'Task1'))),
         ),
       ],
       child: BlocBuilder<LocalCubit, LocalState>(
