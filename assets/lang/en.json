@@ -5,6 +5,10 @@
     "Language":"Language",
     "Settings":"Settings",
     "Add Task":"Add Task",
+    "Task Title":"Task Title",
+    "Task Desc":"Task Description",
+    "Cancel":"Cancel",
+    "Add":"Add",
     "Language Changed":"تم تغيير اللغة"
     
 }

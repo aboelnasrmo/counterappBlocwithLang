@@ -8,9 +8,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'business_logic/bloc/counter_bloc/counter_bloc.dart';
 import 'l10n/app_localization.dart';
-import 'model/task.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -31,8 +30,7 @@ class MyApp extends StatelessWidget {
           create: (context) => InternetBloc(),
         ),
         BlocProvider(
-          create: (context) =>
-              TasksBloc()..add(AddTask(task: Task(title: 'Task1'))),
+          create: (context) => TasksBloc(),
         ),
       ],
       child: BlocBuilder<LocalCubit, LocalState>(

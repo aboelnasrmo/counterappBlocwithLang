@@ -5,5 +5,9 @@
     "Settings":"الإعدادات",
     "Language":"اللغة",
     "Add Task":"إضافة مهمة",
+    "Task Title":"عنوان المهمة",
+    "Task Desc":"وصف المهمة",
+    "Add":"إضافة",
+    "Cancel":"إلغاء",
     "Language Changed":"Language Changed"
 }
